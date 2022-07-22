@@ -4,8 +4,7 @@ const Title = () => {
   return (
     <>
       <MainTitle>
-        Vampires
-        <Subtitle>The Masquerade</Subtitle>
+        <Image src='./logoVampire.png' alt='' />
       </MainTitle>
     </>
   )
@@ -22,12 +21,11 @@ const MainTitle = styled.h1`
   align-items: center;
   flex-direction: column;
 `
-const Subtitle = styled.span`
-  margin-top: 10px;
-  color: #f1f1f1;
-  font-size: 24px;
-  font-weight: 100;
-  text-align: center;
+const Image = styled.img`
+  width: 55%;
+  @media (min-width: 768px) {
+    width: 35%;
+  }
 `
 
 export default Title

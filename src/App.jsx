@@ -8,7 +8,6 @@ import Abilities from './components/Abilities'
 import Advantages from './components/Advantages'
 import DownloadButton from './components/DownloadButton'
 import { Helmet } from 'react-helmet'
-import favicon from './images/favicon.png'
 
 WebFont.load({
   google: {
@@ -19,7 +18,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <link rel='shortcut icon' href={favicon} type='image/x-icon' />
+        <link rel='shortcut icon' href='./favicon.png' type='image/x-icon' />
         <title>Vampires Masquerade</title>
       </Helmet>
       <Title />
