@@ -1,4 +1,7 @@
 import html2pdf from 'html2pdf.js'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 const DownloadButton = () => {
   const download = () => {
@@ -25,7 +28,30 @@ const DownloadButton = () => {
       .save()
       .catch(err => console.log(err))
   }
-  return <button onClick={download}>Download</button>
+  return (
+    <ButtonDownload onClick={download}>
+      <FontAwesomeIcon icon={faFileArrowDown} />
+      <Span>Download</Span>
+    </ButtonDownload>
+  )
 }
+
+const ButtonDownload = styled.button`
+  position: absolute;
+  top: -60px;
+  right: 20px;
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+const Span = styled.span`
+  font-size: 12px;
+  font-weight: 700;
+`
 
 export default DownloadButton

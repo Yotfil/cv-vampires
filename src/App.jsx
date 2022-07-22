@@ -17,8 +17,8 @@ function App() {
   return (
     <>
       <Title />
-      <DownloadButton />
       <Main>
+        <DownloadButton />
         <Container>
           <Header />
         </Container>
@@ -47,5 +47,6 @@ const Main = styled.main`
   background-color: #292929;
   box-shadow: 0 0 8px #151515;
   margin-top: 40px;
+  position: relative;
 `
 export default App
