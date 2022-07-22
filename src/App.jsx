@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import Header from './components/Header'
 import Attributes from './components/Attributes'
 import html2pdf from 'html2pdf.js'
+import Abilities from './components/Abilities'
+import Advantages from './components/Advantages'
 
 WebFont.load({
   google: {
@@ -46,6 +48,12 @@ function App() {
         </Container>
         <Container subtitle={'Attributes'}>
           <Attributes />
+        </Container>
+        <Container subtitle={'Abilities'}>
+          <Abilities />
+        </Container>
+        <Container subtitle={'Advantages'}>
+          <Advantages />
         </Container>
       </Main>
     </>
