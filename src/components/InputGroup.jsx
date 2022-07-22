@@ -2,14 +2,25 @@ import styled from 'styled-components'
 
 const InputGroup = ({ input }) => {
   return (
-    <InputDiv>
-      <Label htmlFor={input.labelName}>{input.labelName}</Label>
-      <Input
-        type={input.type}
-        name={input.labelName}
-        id={input.labelName}
-        placeholder={input.placeholder}
-      />
+    <InputDiv className={input.labelName ? '' : 'withoutLabel'}>
+      {input.labelName ? (
+        <>
+          <Label htmlFor={input.labelName}>{input.labelName}</Label>
+          <Input
+            type={input.type}
+            name={input.labelName}
+            id={input.id}
+            placeholder={input.placeholder}
+          />
+        </>
+      ) : (
+        <Input
+          type={input.type}
+          id={input.id}
+          placeholder={input.placeholder}
+          className={'withoutLabel'}
+        />
+      )}
     </InputDiv>
   )
 }
@@ -20,6 +31,9 @@ const InputDiv = styled.div`
   align-items: flex-start;
   flex-direction: column;
   margin: 10px 0;
+  &.withoutLabel {
+    margin: 5px 0px;
+  }
 `
 
 const Label = styled.label`
@@ -39,6 +53,9 @@ const Input = styled.input`
   &::placeholder {
     font-size: 12px;
     color: gray;
+  }
+  &.withoutLabel {
+    padding: 8px 4px;
   }
 `
 

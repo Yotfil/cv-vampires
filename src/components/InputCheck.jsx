@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import rawInputsProperties from '../data/rawInputsProperties'
+import InputGroup from './InputGroup'
 
 const InputCheck = ({ propertyItem }) => {
   const [inputsProperties, setInputsProperties] = useState(rawInputsProperties)
@@ -64,8 +65,14 @@ const InputCheck = ({ propertyItem }) => {
 
   return (
     <ContainerProperty>
-      <PropertyName>{propertyItem.name}</PropertyName>
-      <Conector />
+      {propertyItem.name ? (
+        <>
+          <PropertyName>{propertyItem.name}</PropertyName>
+          <Conector />
+        </>
+      ) : (
+        <InputGroup input={propertyItem} />
+      )}
       <ContainerPoints>
         {inputsProperties.map((item, index) => {
           return (

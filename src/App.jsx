@@ -4,9 +4,9 @@ import Title from './components/Title'
 import styled from 'styled-components'
 import Header from './components/Header'
 import Attributes from './components/Attributes'
-import html2pdf from 'html2pdf.js'
 import Abilities from './components/Abilities'
 import Advantages from './components/Advantages'
+import DownloadButton from './components/DownloadButton'
 
 WebFont.load({
   google: {
@@ -14,34 +14,10 @@ WebFont.load({
   },
 })
 function App() {
-  const download = () => {
-    const $elementoParaConvertir = document.body // <-- Aquí puedes elegir cualquier elemento del DOM
-    html2pdf()
-      .set({
-        margin: 1,
-        filename: 'documento.pdf',
-        image: {
-          type: 'jpeg',
-          quality: 0.98,
-        },
-        html2canvas: {
-          scale: 3, // A mayor escala, mejores gráficos, pero más peso
-          letterRendering: true,
-        },
-        jsPDF: {
-          unit: 'in',
-          format: 'a2',
-          orientation: 'portrait', // landscape o portrait
-        },
-      })
-      .from($elementoParaConvertir)
-      .save()
-      .catch(err => console.log(err))
-  }
   return (
     <>
       <Title />
-      <button onClick={download}>Download</button>
+      <DownloadButton />
       <Main>
         <Container>
           <Header />

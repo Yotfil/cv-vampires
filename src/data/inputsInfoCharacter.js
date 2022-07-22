@@ -1,54 +1,56 @@
+import { v4 } from 'uuid'
+
 const inputsCharacter = [
   {
-    idInput: 1,
+    idInput: v4(),
     type: 'text',
     labelName: 'Name',
     placeholder: 'Ej: John Doe',
   },
   {
-    idInput: 2,
+    idInput: v4(),
     type: 'text',
     labelName: 'Nature',
     placeholder: 'Ej: John Doe',
   },
   {
-    idInput: 3,
+    idInput: v4(),
     type: 'Clan',
     labelName: 'Chronicle',
     placeholder: 'Ej: Bruja',
   },
   {
-    idInput: 4,
+    idInput: v4(),
     type: 'text',
     labelName: 'Player',
     placeholder: 'Ej: John Doe',
   },
   {
-    idInput: 5,
+    idInput: v4(),
     type: 'text',
     labelName: 'Demeanor',
     placeholder: 'Ej: Jester',
   },
   {
-    idInput: 6,
+    idInput: v4(),
     type: 'text',
     labelName: 'Generation',
     placeholder: 'Ej: 13',
   },
   {
-    idInput: 7,
+    idInput: v4(),
     type: 'text',
     labelName: 'Chronicle',
     placeholder: 'Ej: Second War',
   },
   {
-    idInput: 8,
+    idInput: v4(),
     type: 'text',
     labelName: 'Concept',
     placeholder: 'Ej: Autocrat',
   },
   {
-    idInput: 9,
+    idInput: v4(),
     type: 'text',
     labelName: 'Sire',
     placeholder: 'Ej: John Doe',
