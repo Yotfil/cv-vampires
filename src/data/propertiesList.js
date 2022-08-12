@@ -11,11 +11,11 @@ const attributesData = [
       },
       {
         id: v4(),
-        name: 'Strength',
+        name: 'Dexterity',
       },
       {
         id: v4(),
-        name: 'Strength',
+        name: 'Stamina',
       },
     ],
   },
@@ -290,4 +290,91 @@ const advantagesData = [
   },
 ]
 
-export { attributesData, abilitiesData, advantagesData }
+const othersData = [
+  {
+    id: v4(),
+    titleColumn: 'Merits & Flaws',
+    subTitles: ['Merit', 'Cost'],
+    properties: [
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: 'Add a merit',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: 'Add another merit',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+    ],
+  },
+  {
+    id: v4(),
+    titleColumn: 'Merits & Flaws',
+    subTitles: ['Flaw', 'Cost'],
+    properties: [
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: 'Add a flaw',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: 'Add another flaw',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+      {
+        id: v4(),
+        name: '',
+        type: 'text',
+        line: true,
+        placeholder: '...and other',
+      },
+    ],
+  },
+]
+
+export { attributesData, abilitiesData, advantagesData, othersData }

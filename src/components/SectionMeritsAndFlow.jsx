@@ -1,0 +1,37 @@
+import styled from 'styled-components'
+import InputCheck from './InputCheck'
+
+const SectionMeritsAndFlow = ({ otherData }) => {
+  return (
+    <Section>
+      <Div>
+        <P>{otherData.subTitles[0]}</P>
+        <P>{otherData.subTitles[1]}</P>
+      </Div>
+      <div>
+        {otherData.properties.map(property => {
+          return (
+            <InputCheck key={property.id} propertyItem={property}></InputCheck>
+          )
+        })}
+      </div>
+    </Section>
+  )
+}
+
+const P = styled.p`
+  color: #d1d1d1;
+  font-weight: 100;
+`
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 0 10px;
+`
+const Section = styled.section`
+  margin-bottom: 40px;
+`
+
+export default SectionMeritsAndFlow

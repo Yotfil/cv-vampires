@@ -13,7 +13,7 @@ const PropertiesBox = ({ columnProperties }) => {
   )
 }
 
-const TitleColumn = styled.h3`
+const TitleColumn = styled.h4`
   color: #ffdab8;
   font-size: 24px;
   margin-bottom: 10px;

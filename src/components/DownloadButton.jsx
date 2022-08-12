@@ -48,6 +48,7 @@ const ButtonDownload = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 const Span = styled.span`
   font-size: 12px;

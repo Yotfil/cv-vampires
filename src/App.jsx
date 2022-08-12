@@ -7,7 +7,8 @@ import Attributes from './components/Attributes'
 import Abilities from './components/Abilities'
 import Advantages from './components/Advantages'
 import DownloadButton from './components/DownloadButton'
-import { Helmet } from 'react-helmet'
+import Others from './components/Others'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 WebFont.load({
   google: {
@@ -16,7 +17,7 @@ WebFont.load({
 })
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <link rel='shortcut icon' href='./favicon.png' type='image/x-icon' />
         <title>Vampires Masquerade</title>
@@ -36,8 +37,11 @@ function App() {
         <Container subtitle={'Advantages'}>
           <Advantages />
         </Container>
+        <Container subtitle={'Others'}>
+          <Others />
+        </Container>
       </Main>
-    </>
+    </HelmetProvider>
   )
 }
 

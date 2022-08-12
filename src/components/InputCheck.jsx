@@ -63,6 +63,16 @@ const InputCheck = ({ propertyItem }) => {
     }
   }
 
+  const clearPoints = () => {
+    const newArray = inputsProperties.map((property, index) => {
+      return {
+        ...property,
+        bgColor: 'inactive',
+      }
+    })
+    setInputsProperties(newArray)
+  }
+
   return (
     <ContainerProperty>
       {propertyItem.name ? (
@@ -73,22 +83,50 @@ const InputCheck = ({ propertyItem }) => {
       ) : (
         <InputGroup input={propertyItem} />
       )}
-      <ContainerPoints>
-        {inputsProperties.map((item, index) => {
-          return (
-            <SpanPoint
-              key={item.id}
-              id={item.id}
-              onMouseEnter={checkedPoint}
-              onMouseLeave={uncheckedPoint}
-              onClick={confirmPoint}
-              className={item.bgColor}></SpanPoint>
-          )
-        })}
-      </ContainerPoints>
+      {!propertyItem.line ? (
+        <ContainerPoints>
+          {inputsProperties.map(item => {
+            return (
+              <SpanPoint
+                key={item.id}
+                id={item.id}
+                onMouseEnter={checkedPoint}
+                onMouseLeave={uncheckedPoint}
+                onClick={confirmPoint}
+                onDoubleClick={clearPoints}
+                className={item.bgColor}></SpanPoint>
+            )
+          })}
+        </ContainerPoints>
+      ) : (
+        <Input type='number' />
+      )}
     </ContainerProperty>
   )
 }
+
+const Input = styled.input`
+  width: 20%;
+  font-size: 16px;
+  color: #d1d1d1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  padding: 8px 4px;
+  margin: 5px 0;
+  -moz-appearance: textfield;
+  &::placeholder {
+    font-size: 12px;
+    color: gray;
+  }
+  &.withoutLabel {
+    padding: 8px 4px;
+  }
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+`
 
 const SpanPoint = styled.div.attrs(props => ({ className: props.className }))`
   border-radius: 50%;
@@ -119,7 +157,7 @@ const ContainerProperty = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 5px;
-  width: 80%;
+  width: 90%;
 `
 const Conector = styled.span`
   border-bottom: 1px solid gray;
