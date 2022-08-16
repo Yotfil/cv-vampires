@@ -1,5 +1,11 @@
+import BloodPool from './BloodPool'
 import ColumnOthers from './ColumnOthers'
+import HumanityPath from './HumanityPath'
 import MeritsAndFlaw from './MeritsAndFlaw'
+import Weakness from './Weakness'
+import WillPower from './WillPower'
+import Experience from './Experience'
+import Health from './Health'
 
 const Others = () => {
   return (
@@ -8,21 +14,21 @@ const Others = () => {
         <MeritsAndFlaw />
       </ColumnOthers>
       <ColumnOthers title={'Humanity/Path'}>
-        <h1>Hello world!</h1>
+        <HumanityPath />
         <ColumnOthers title={'Willpower'}>
-          <h1>Hello world!</h1>
+          <WillPower />
         </ColumnOthers>
         <ColumnOthers title={'Blood Pool'}>
-          <h1>Hello world!</h1>
+          <BloodPool />
         </ColumnOthers>
       </ColumnOthers>
       <ColumnOthers title={'Health'}>
-        <h1>Hello world!</h1>
+        <Health />
         <ColumnOthers title={'Weakness'}>
-          <h1>Hello world!</h1>
+          <Weakness />
         </ColumnOthers>
         <ColumnOthers title={'Experience'}>
-          <h1>Hello world!</h1>
+          <Experience />
         </ColumnOthers>
       </ColumnOthers>
     </>

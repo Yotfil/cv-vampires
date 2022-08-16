@@ -8,6 +8,7 @@ const attributesData = [
       {
         id: v4(),
         name: 'Strength',
+        active: 0,
       },
       {
         id: v4(),
@@ -56,6 +57,7 @@ const attributesData = [
     ],
   },
 ]
+
 const abilitiesData = [
   {
     id: v4(),
@@ -377,4 +379,89 @@ const othersData = [
   },
 ]
 
-export { attributesData, abilitiesData, advantagesData, othersData }
+const humanityPath = {
+  id: v4(),
+  placeholder: 'Ej:',
+  labelBearing: 'Bearing',
+  placeholderBearing: 'Ej:',
+  amountPoints: 10,
+}
+
+const willPower = {
+  id: v4(),
+  amountRoundPoints: 10,
+  amountSquarePoints: 10,
+}
+
+const bloodPool = {
+  id: v4(),
+  amountSquarePoints: 20,
+  label: 'Blood per turn',
+  placeholder: 'Ej: 6',
+  blood: true,
+}
+
+const healthStates = [
+  {
+    id: v4(),
+    nameStateHealth: 'Bruised',
+    active: false,
+    penalty:0
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Hurt',
+    active: false,
+    penalty:-1
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Injured',
+    active: false,
+    penalty:-1
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Wounded',
+    active: false,
+    penalty:-2
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Mauled',
+    active: false,
+    penalty:-2
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Crippled',
+    active: false,
+    penalty:-5
+  },
+  {
+    id: v4(),
+    nameStateHealth: 'Incapacitated',
+    active: false,
+    penalty:0,
+  },
+]
+
+const weakness = {
+  placeholder: 'Ej: weakness',
+}
+const experience = {
+  placeholder: 'Ej: 600',
+}
+
+export {
+  attributesData,
+  abilitiesData,
+  advantagesData,
+  othersData,
+  humanityPath,
+  willPower,
+  bloodPool,
+  weakness,
+  experience,
+  healthStates
+}

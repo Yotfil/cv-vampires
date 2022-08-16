@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import InputCheck from './InputCheck'
+import Property from './Property'
 
 const SectionMeritsAndFlow = ({ otherData }) => {
   return (
@@ -11,7 +11,7 @@ const SectionMeritsAndFlow = ({ otherData }) => {
       <div>
         {otherData.properties.map(property => {
           return (
-            <InputCheck key={property.id} propertyItem={property}></InputCheck>
+            <Property key={property.id} propertyItem={property}></Property>
           )
         })}
       </div>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import InputCheck from './InputCheck'
+import Property from './Property'
 
 const PropertiesBox = ({ columnProperties }) => {
   const propertiesList = columnProperties.properties
@@ -7,7 +7,7 @@ const PropertiesBox = ({ columnProperties }) => {
     <Column>
       <TitleColumn>{columnProperties.titleColumn}</TitleColumn>
       {propertiesList.map(property => {
-        return <InputCheck key={property.id} propertyItem={property} />
+        return <Property key={property.id} propertyItem={property} />
       })}
     </Column>
   )
