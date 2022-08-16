@@ -46,6 +46,9 @@ const Container = styled.div.attrs(props => ({ className: props.className }))`
     }
     span {
       background-color: #808080;
+      :hover{
+        background-color: #515151;
+      }
     }
   }
   &.Bruised {
@@ -113,15 +116,6 @@ const SpanPoint = styled.span`
   margin: 3px;
   display: block;
   cursor: pointer;
-  :hover {
-    background-color: #5d5d5d;
-  }
-  &.active {
-    background-color: #fba74c;
-  }
-  &.inactive {
-    background-color: #808080;
-  }
 `
 
 export default HealthState
