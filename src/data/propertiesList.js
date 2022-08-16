@@ -406,43 +406,50 @@ const healthStates = [
     id: v4(),
     nameStateHealth: 'Bruised',
     active: false,
-    penalty:0
+    penalty: 0,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Hurt',
     active: false,
-    penalty:-1
+    penalty: -1,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Injured',
     active: false,
-    penalty:-1
+    penalty: -1,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Wounded',
     active: false,
-    penalty:-2
+    penalty: -2,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Mauled',
     active: false,
-    penalty:-2
+    penalty: -2,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Crippled',
     active: false,
-    penalty:-5
+    penalty: -5,
+    bgColor: 'inactive',
   },
   {
     id: v4(),
     nameStateHealth: 'Incapacitated',
     active: false,
-    penalty:0,
+    penalty: 0,
+    bgColor: 'inactive',
   },
 ]
 
@@ -463,5 +470,5 @@ export {
   bloodPool,
   weakness,
   experience,
-  healthStates
+  healthStates,
 }
