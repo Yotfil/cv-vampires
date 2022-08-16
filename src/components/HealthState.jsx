@@ -5,19 +5,34 @@ const HealthState = ({ state, setItemsHealthState, itemsHealthState }) => {
     const idCurrentTarget = e.target.id
     const newArray = itemsHealthState.map((state, i) => {
       if (state.id === idCurrentTarget) {
-        return { ...state, bgColor: state.nameStateHealth }
+        return {
+          ...state,
+          bgColor: state.nameStateHealth,
+        }
       } else {
         return { ...state, bgColor: 'inactive' }
       }
     })
     setItemsHealthState(newArray)
   }
+
+  const removeStateStealth = _ => {
+    const newArray = itemsHealthState.map(state => ({
+      ...state,
+      bgColor: 'inactive',
+    }))
+    setItemsHealthState(newArray)
+  }
+
   return (
     <Container className={state.bgColor}>
       <P>{state.nameStateHealth}</P>
       <Container className={'small'}>
         {state.penalty !== 0 && <P>{state.penalty}</P>}
-        <SpanPoint id={state.id} onClick={activeStateHealth}></SpanPoint>
+        <SpanPoint
+          id={state.id}
+          onClick={activeStateHealth}
+          onDoubleClick={removeStateStealth}></SpanPoint>
       </Container>
     </Container>
   )
@@ -46,7 +61,7 @@ const Container = styled.div.attrs(props => ({ className: props.className }))`
     }
     span {
       background-color: #808080;
-      :hover{
+      :hover {
         background-color: #515151;
       }
     }
