@@ -4,7 +4,7 @@ const radioInput = () => {
   return {
     id: v4(),
     checked: false,
-    bgColor: 'inactive',
+    bgColor: '#808080',
   }
 }
 

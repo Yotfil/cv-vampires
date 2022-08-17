@@ -8,7 +8,7 @@ const WillPower = () => {
       <PropertyPoints amountPoints={willPower.amountRoundPoints} />
       <PropertyPoints
         amountPoints={willPower.amountSquarePoints}
-        pointType='square'
+        borderRadius={willPower.borderRadius}
       />
     </Container>
   )

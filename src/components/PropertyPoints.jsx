@@ -1,12 +1,8 @@
 import { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import setArrayPoints from '../data/setArrayPoints'
 
-const PropertyPoints = ({
-  amountPoints = 5,
-  pointType = '',
-  blood = false,
-}) => {
+const PropertyPoints = ({ amountPoints = 5, blood = false, borderRadius }) => {
   const setArrayAmountPoints = setArrayPoints(amountPoints)
   const [inputsProperties, setInputsProperties] = useState(setArrayAmountPoints)
   const [confirmedProperty, setConfirmedProperty] = useState(false)
@@ -20,7 +16,7 @@ const PropertyPoints = ({
         if (index <= indexItem) {
           return {
             ...property,
-            bgColor: blood ? 'blood' : 'active',
+            bgColor: blood ? '#2b0000' : '#fba74c',
           }
         }
         return property
@@ -34,7 +30,7 @@ const PropertyPoints = ({
       const newArray = inputsProperties.map(property => {
         return {
           ...property,
-          bgColor: 'inactive',
+          bgColor: '#808080',
         }
       })
       setInputsProperties(newArray)
@@ -50,12 +46,12 @@ const PropertyPoints = ({
         if (index <= indexItem) {
           return {
             ...property,
-            bgColor: blood ? 'blood' : 'active',
+            bgColor: blood ? '#2b0000' : '#fba74c',
           }
         }
         return {
           ...property,
-          bgColor: 'inactive',
+          bgColor: '#808080',
         }
       })
       setInputsProperties(newArray)
@@ -68,7 +64,7 @@ const PropertyPoints = ({
     const newArray = inputsProperties.map(property => {
       return {
         ...property,
-        bgColor: 'inactive',
+        bgColor: '#808080',
       }
     })
     setInputsProperties(newArray)
@@ -76,7 +72,7 @@ const PropertyPoints = ({
   }
 
   return (
-    <ContainerPoints className={`${pointType}`}>
+    <ContainerPoints blood={blood}>
       {inputsProperties.map(item => {
         return (
           <SpanPoint
@@ -86,45 +82,37 @@ const PropertyPoints = ({
             onMouseLeave={uncheckedPoint}
             onClick={confirmPoint}
             onDoubleClick={clearPoints}
-            className={`${item.bgColor} ${pointType}`}></SpanPoint>
+            borderRadius={borderRadius}
+            color={item.bgColor}></SpanPoint>
         )
       })}
     </ContainerPoints>
   )
 }
 
-const SpanPoint = styled.span.attrs(props => ({ className: props.className }))`
-  border-radius: 50%;
-  background-color: gray;
+const SpanPoint = styled.span`
+  border-radius: ${props => props.borderRadius || '50%'};
+  background-color: ${props => props.color};
   width: 13px;
   height: 13px;
   margin: 3px;
   display: block;
   cursor: pointer;
-  &.active {
-    background-color: #fba74c;
-  }
-  &.blood {
-    background-color: #2b0000;
-  }
-  &.inactive {
-    background-color: #808080;
-  }
-  &.square {
-    border-radius: unset;
-  }
 `
 
-const ContainerPoints = styled.div.attrs(props => ({
-  className: props.className,
-}))`
+const ContainerPoints = styled.div`
+  ${({ blood }) =>
+    blood
+      ? css`
+          flex-wrap: wrap;
+        `
+      : css`
+          flex-wrap: nowrap;
+        `}
   display: flex;
   justify-content: center;
   align-items: center;
-  &.square {
-    max-width: 190px;
-    flex-wrap: wrap;
-  }
+  max-width: 190px;
 `
 
 export default PropertyPoints

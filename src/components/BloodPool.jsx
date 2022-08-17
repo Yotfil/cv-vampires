@@ -1,5 +1,5 @@
-import { bloodPool } from '../data/propertiesList.js'
 import styled from 'styled-components'
+import { bloodPool } from '../data/propertiesList.js'
 import PropertyPoints from './PropertyPoints.jsx'
 
 const BloodPool = () => {
@@ -7,7 +7,7 @@ const BloodPool = () => {
     <Container>
       <PropertyPoints
         amountPoints={bloodPool.amountSquarePoints}
-        pointType='square'
+        borderRadius={bloodPool.borderRadius}
         blood={bloodPool.blood}
       />
       <InputDiv>

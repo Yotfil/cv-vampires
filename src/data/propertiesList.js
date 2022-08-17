@@ -391,6 +391,7 @@ const willPower = {
   id: v4(),
   amountRoundPoints: 10,
   amountSquarePoints: 10,
+  borderRadius: 'unset',
 }
 
 const bloodPool = {
@@ -399,6 +400,7 @@ const bloodPool = {
   label: 'Blood per turn',
   placeholder: 'Ej: 6',
   blood: true,
+  borderRadius: 'unset',
 }
 
 const healthStates = [
@@ -407,49 +409,56 @@ const healthStates = [
     nameStateHealth: 'Bruised',
     active: false,
     penalty: 0,
-    bgColor: 'inactive',
+    bgColor: '#fff29b',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Hurt',
     active: false,
     penalty: -1,
-    bgColor: 'inactive',
+    bgColor: '#ffd000',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Injured',
     active: false,
     penalty: -1,
-    bgColor: 'inactive',
+    bgColor: '#ffc800',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Wounded',
     active: false,
     penalty: -2,
-    bgColor: 'inactive',
+    bgColor: '#ffa600',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Mauled',
     active: false,
     penalty: -2,
-    bgColor: 'inactive',
+    bgColor: '#ff8800',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Crippled',
     active: false,
     penalty: -5,
-    bgColor: 'inactive',
+    bgColor: '#eb695b',
+    currentBgColor:''
   },
   {
     id: v4(),
     nameStateHealth: 'Incapacitated',
     active: false,
     penalty: 0,
-    bgColor: 'inactive',
+    bgColor: '#8a5151',
+    currentBgColor:''
   },
 ]
 

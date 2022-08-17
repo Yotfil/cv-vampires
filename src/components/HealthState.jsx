@@ -1,16 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const HealthState = ({ state, setItemsHealthState, itemsHealthState }) => {
   const activeStateHealth = e => {
     const idCurrentTarget = e.target.id
-    const newArray = itemsHealthState.map((state, i) => {
+    const newArray = itemsHealthState.map(state => {
       if (state.id === idCurrentTarget) {
         return {
           ...state,
-          bgColor: state.nameStateHealth,
+          currentBgColor: state.bgColor,
         }
       } else {
-        return { ...state, bgColor: 'inactive' }
+        return { ...state, currentBgColor: '#808080' }
       }
     })
     setItemsHealthState(newArray)
@@ -19,118 +19,65 @@ const HealthState = ({ state, setItemsHealthState, itemsHealthState }) => {
   const removeStateStealth = _ => {
     const newArray = itemsHealthState.map(state => ({
       ...state,
-      bgColor: 'inactive',
+      currentBgColor: '#808080',
     }))
     setItemsHealthState(newArray)
   }
 
   return (
-    <Container className={state.bgColor}>
-      <P>{state.nameStateHealth}</P>
-      <Container className={'small'}>
-        {state.penalty !== 0 && <P>{state.penalty}</P>}
+    <Container small={false}>
+      <P colorText={state.currentBgColor || '#d1d1d1'}>
+        {state.nameStateHealth}
+      </P>
+      <Container small={true}>
+        {state.penalty !== 0 && (
+          <P colorText={state.currentBgColor || '#d1d1d1'}>{state.penalty}</P>
+        )}
         <SpanPoint
           id={state.id}
           onClick={activeStateHealth}
-          onDoubleClick={removeStateStealth}></SpanPoint>
+          onDoubleClick={removeStateStealth}
+          bgColor={state.currentBgColor}></SpanPoint>
       </Container>
     </Container>
   )
 }
 
 const P = styled.p`
-  color: #d1d1d1;
+  color: ${props =>
+    props.colorText !== '#808080' ? props.colorText : '#d1d1d1'};
   font-size: 16px;
 `
 
-const Container = styled.div.attrs(props => ({ className: props.className }))`
-  width: 50%;
+const Container = styled.div`
+  ${({ small }) =>
+    small
+      ? css`
+          width: auto;
+          justify-content: center;
+          & span {
+            margin-left: 15px;
+          }
+        `
+      : css`
+          width: 50%;
+          justify-content: space-between;
+        `}
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  &.small {
-    width: auto;
-    justify-content: center;
-    & span {
-      margin-left: 15px;
-    }
-  }
-  &.inactive {
-    p {
-      color: #808080;
-    }
-    span {
-      background-color: #808080;
-      :hover {
-        background-color: #515151;
-      }
-    }
-  }
-  &.Bruised {
-    p {
-      color: #fff29b;
-    }
-    span {
-      background-color: #fff29b;
-    }
-  }
-  &.Hurt {
-    p {
-      color: #ffd000;
-    }
-    span {
-      background-color: #ffd000;
-    }
-  }
-  &.Injured {
-    p {
-      color: #ffc800;
-    }
-    span {
-      background-color: #ffc800;
-    }
-  }
-  &.Wounded {
-    p {
-      color: #ffa600;
-    }
-    span {
-      background-color: #ffa600;
-    }
-  }
-  &.Mauled {
-    p {
-      color: #ff8800;
-    }
-    span {
-      background-color: #ff8800;
-    }
-  }
-  &.Crippled {
-    p {
-      color: #eb695b;
-    }
-    span {
-      background-color: #eb695b;
-    }
-  }
-  &.Incapacitated {
-    p {
-      color: #8a5151;
-    }
-    span {
-      background-color: #8a5151;
-    }
-  }
 `
 
 const SpanPoint = styled.span`
-  background-color: #808080;
+  background-color: ${props => props.bgColor || '#808080'};
   width: 13px;
   height: 13px;
   margin: 3px;
   display: block;
   cursor: pointer;
+  :hover {
+    background-color: ${props =>
+      props.bgColor !== '#808080' ? props.bgColor : '#505050'};
+  }
 `
 
 export default HealthState
